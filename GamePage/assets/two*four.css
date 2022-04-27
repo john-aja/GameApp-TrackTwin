@@ -1,0 +1,363 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  p{
+    font-size: 20px;
+  }
+  
+  body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap:5rem;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('../images/Gbg.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Ubuntu', sans-serif;
+    white-space: nowrap;
+  }
+  
+  
+  .container{
+    padding:5rem 5rem;
+    background: #b8b8b8c7;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  
+  .cards_list, .card, .card-view, .information, p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .cards_list{
+    height: 35rem;
+    width: 35rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .cards_list .card{
+    cursor: pointer;
+    position: relative;
+    height: 28%;
+    width:22%;
+  }
+  
+  .card.vibrate{
+    animation: vibrate 0.35s ease-in-out;
+  }
+  
+  @keyframes vibrate {
+    0%, 100%{
+      transform: translateX(0);
+    }
+    20%{
+      transform: translateX(-13px);
+    }
+    40%{
+      transform: translateX(13px);
+    }
+    60%{
+      transform: translateX(-8px);
+    }
+    80%{
+      transform: translateX(8px);
+    }
+  }
+  
+  .cards_list .card .card-view{
+    width: 100%;
+    height: 100%;
+    user-select: none;
+    pointer-events: none;
+    position: absolute;
+    background: #fff;
+    border-radius: 7px;
+    backface-visibility: hidden;
+    transition: transform 0.25s linear;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+  
+  .card .card-front img{
+    max-width: 3rem;
+  }
+  
+  .card .card-back{
+    transform: rotateY(-180deg);
+  }
+  
+  .card .card-back img{
+    max-width: 5rem;
+  }
+  
+  .card.turn .card-front{
+    transform: rotateY(180deg);
+  }
+  
+  .card.turn .card-back{
+    transform: rotateY(0);
+  }
+  
+  .information{
+    width: auto;
+    padding: 5.5rem 3rem;
+    border-radius: 7px;
+    background: #b8b8b8c7;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+  
+  .information div{
+    display: flex;
+    flex-direction: column;
+    gap:5rem;
+    padding:3rem 4rem;
+    background-color: white;
+  }
+  
+  .information p{
+    font-size: 1.2rem;
+  
+  }
+  
+  .information p span{
+    margin-left: 8px;
+  }
+  
+  .information p b{
+    font-weight: 500;
+  }
+  
+  .information button{
+    cursor: pointer;
+    font-size: 14px;
+    color: rgb(18, 52, 163);
+    border-radius: 4px;
+    padding: 4px 11px;
+    width:100%;
+    background: #fff;
+    border: 2px solid rgb(18, 52, 163);
+    transition: 0.3s ease;
+  }
+
+  .information a{
+    text-decoration: none;
+  }
+  
+  .information button:hover{
+    color: #fff;
+    background: rgb(18, 52, 163);
+  }
+  
+  .information a button{
+    text-decoration: none;
+    border: 2px solid rgb(163, 18, 54);
+    color: rgb(163, 18, 54);
+  }
+
+  .information a button:hover{
+    background:rgb(163, 18, 54);
+    color: #fff;
+
+  }
+  
+  .hidden{
+  opacity:0;
+  }
+
+  .display{
+    opacity:0;
+    visibility: hidden;
+  }
+
+
+
+  .alert{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    content:"";
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    height:40vh;
+    width:60vw;
+    background-color: rgb(173, 173, 173);
+    z-index: 99;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.479);
+  }
+
+  .alert p {
+    font-size: 2rem;
+  }
+  .alert div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:5rem;
+  }
+  
+  .alert a{
+    padding:1rem 4rem;
+    background-color: brown;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+  }
+
+  .alert-fail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    content:"";
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    height:40vh;
+    width:60vw;
+    background-color: rgb(173, 173, 173);
+    z-index: 99;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.479);
+  }
+
+  .alert-fail p {
+    font-size: 2rem;
+  }
+  .alert-fail div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:5rem;
+  }
+  
+  .alert-fail a{
+    padding:1rem 4rem;
+    background-color: brown;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+  }
+
+  .overlay{
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(245, 245, 245, 0.384);
+    z-index: 1;
+    backdrop-filter: blur(4px);
+  }
+
+
+
+
+
+  @media screen and (max-width:1100px){
+    .cards_list{
+      height: 30rem;
+      width: 30rem;
+  }
+    .container{
+      padding:3rem 3rem;
+    }
+    .information {
+      padding: 3rem;
+    }
+    .information div{
+      padding:1rem 4rem;
+    }
+}
+
+
+  @media screen and (max-width:1000px){
+    .cards_list{
+      height: 25rem;
+      width: 25rem;
+  }
+    .container{
+      padding:2rem 2rem;
+    }
+  
+    .information div{
+      gap:3.3rem;
+    } 
+  }
+  
+  @media screen and (max-width:800px){
+    .cards_list{
+      height: 25rem;
+      width: 25rem;
+  }
+  body{
+    flex-direction: column;
+  }
+  .information {
+    padding: 3rem 4rem;
+  }
+  .information div{
+    flex-direction: row;
+    gap: 1rem;
+  } 
+  .container {
+    padding: 2rem 6rem;
+  }
+  .cards_list{
+    height: 35rem;
+    width: 35rem;
+  }
+  }
+  
+  /* @media screen and (max-width: 700px) {
+    .cards_list{
+      height: 350px;
+      width: 350px;
+    }
+    .card .card-front img{
+      max-width: 16px;
+    }
+    .card .card-back img{
+      max-width: 40px;
+    }
+  }
+  
+  @media screen and (max-width: 530px) {
+    .cards_list{
+      height: 300px;
+      width: 300px;
+    }
+    .card .card-back img{
+      max-width: 35px;
+    }
+    .information{
+      margin-top: 10px;
+      padding: 0 15px;
+      height: calc(100% / 4 - 20px);
+    }
+    .information p{
+      height: 15px;
+      font-size: 17px;
+      padding-right: 13px;
+    }
+    .information button{
+      font-size: 13px;
+      padding: 5px 10px;
+      border: none;
+      color: #fff;
+      background: #6563ff;
+    }
+  } */
+  

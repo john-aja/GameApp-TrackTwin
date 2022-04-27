@@ -23,7 +23,7 @@ html {
 }
 
 body{
-    background-image: url('./bg1.jpeg');
+    background-image: url('../images/bg1.jpeg');
     background-size: 100% 100vh;
     background-repeat:no-repeat;
 }
@@ -114,4 +114,41 @@ body{
 
 .home_section a:hover{
     background-color:rgb(178, 199, 39);
+}
+
+
+@media screen and (max-width:1000px){
+ .home_section{
+     padding:5rem;
+ }
+ html {
+    font-size: 55%;
+ }
+}
+
+@media screen and (max-width:830px){
+    html {
+       font-size: 50%;
+    }
+   }
+
+   @media screen and (max-width:750px){
+    html {
+       font-size: 45%;
+    }
+   }
+
+   @media screen and (max-width:750px){
+    html {
+       font-size: 40%;
+    }
+   }
+
+   @media screen and (max-width:650px){
+    .home_section{
+        padding:10rem;
+    }
+   .card_container {
+    grid-template-columns: 1fr;
+}
 }

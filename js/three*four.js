@@ -1,6 +1,10 @@
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
 import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyDHeaYMygDFLqH6MToCMAWS8nbPAriE3xk",
     authDomain: "track-twin.firebaseapp.com",
@@ -15,7 +19,7 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app)
 
 let data;
-const retriveData = ref(db, 'bestscore 2*3/');
+const retriveData = ref(db, 'bestscore 3*4/');
 onValue(retriveData, (snapshot) => {
     data = snapshot.val().highscore
     bestTag.innerText = data;
@@ -24,13 +28,11 @@ onValue(retriveData, (snapshot) => {
 
 
 function writeData(score) {
-    set(ref(db, 'bestscore 2*3/'), {
+
+    set(ref(db, 'bestscore 3*4/'), {
         highscore: score,
     })
 }
-
-
-
 
 const cards = document.querySelectorAll(".card");
 const timeTag = document.querySelector(".time b");
@@ -38,8 +40,8 @@ const turnTag = document.querySelector(".moves b");
 const bestTag = document.querySelector(".high-score b")
 const refreshBtn = document.querySelector(".information button");
 const successBox = document.querySelector('.alert');
-const overlay = document.querySelector('.overlay')
-const timeUpBox = document.querySelector('.alert-fail')
+const overlay = document.querySelector('.overlay');
+const timeUpBox = document.querySelector('.alert-fail');
 
 let maxTime;
 let remainingTime = maxTime;
@@ -55,14 +57,15 @@ let firstCard, secondCard, timer;
 let complexityValue = JSON.parse(localStorage.getItem('levelValue'));
 
 if (complexityValue == "c-1") {
-    maxTime = 50;
+    maxTime = 45;
 }
 if (complexityValue == "c-2") {
-    maxTime = 40;
-}
-if (complexityValue == "c-3") {
     maxTime = 30;
 }
+if (complexityValue == "c-3") {
+    maxTime = 20;
+}
+
 
 
 function timerFunc() {
@@ -95,40 +98,37 @@ function turnCard({ target: clickedCard }) {
     }
 }
 
-
-
 function removeCard(firstCard, secondCard) {
     setTimeout(() => {
         firstCard.classList.toggle("hidden");
         secondCard.classList.toggle("hidden");
     }, 1000);
 }
-
-
-
-
-
 function checkCards(firstImg, secondImg) {
     if (firstImg === secondImg) {
         removeCard(firstCard, secondCard);
         cardPair++;
-        if (cardPair == 3 && remainingTime > 0) {
+
+
+
+        if (cardPair == 6 && remainingTime > 0) {
             if (bestTag.innerText > turn || bestTag.innerText == 0) {
                 highscore = turn;
-
-                writeData(highscore);
+                bestTag.innerText = highscore;
+                writeData(highscore)
             }
             return clearInterval(timer), setTimeout(() => {
                 successBox.classList.remove('display');
                 overlay.classList.remove('display');
-            }, 500);
+            }, 500);;
         }
+
+
         firstCard.removeEventListener("click", turnCard);
         secondCard.removeEventListener("click", turnCard);
         firstCard = secondCard = "";
         return deactivate = false;
     }
-
 
     setTimeout(() => {
         firstCard.classList.add("vibrate");
@@ -143,7 +143,6 @@ function checkCards(firstImg, secondImg) {
     }, 1200);
 }
 
-
 function mixCards() {
 
     remainingTime = maxTime;
@@ -154,7 +153,7 @@ function mixCards() {
     turnTag.innerText = turn;
     deactivate = started = false;
 
-    let arr = [1, 2, 3, 1, 2, 3];
+    let arr = [1, 2, 3, 4, 5, 6, 5, 6, 1, 2, 3, 4];
     arr.sort(() => Math.random() > 0.5 ? 1 : -1);
 
     cards.forEach((card, index) => {
@@ -175,4 +174,6 @@ refreshBtn.addEventListener("click", mixCards);
 cards.forEach(card => {
     card.addEventListener("click", turnCard);
 });
+
+
 

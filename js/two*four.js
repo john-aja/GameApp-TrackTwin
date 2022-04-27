@@ -1,10 +1,6 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
 import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyDHeaYMygDFLqH6MToCMAWS8nbPAriE3xk",
     authDomain: "track-twin.firebaseapp.com",
@@ -19,7 +15,7 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app)
 
 let data;
-const retriveData = ref(db, 'bestscore 3*4/');
+const retriveData = ref(db, 'bestscore 2*4/');
 onValue(retriveData, (snapshot) => {
     data = snapshot.val().highscore
     bestTag.innerText = data;
@@ -28,8 +24,7 @@ onValue(retriveData, (snapshot) => {
 
 
 function writeData(score) {
-
-    set(ref(db, 'bestscore 3*4/'), {
+    set(ref(db, 'bestscore 2*4/'), {
         highscore: score,
     })
 }
@@ -41,7 +36,7 @@ const bestTag = document.querySelector(".high-score b")
 const refreshBtn = document.querySelector(".information button");
 const successBox = document.querySelector('.alert');
 const overlay = document.querySelector('.overlay');
-const timeUpBox = document.querySelector('.alert-fail');
+const timeUpBox = document.querySelector('.alert-fail')
 
 let maxTime;
 let remainingTime = maxTime;
@@ -53,19 +48,17 @@ let highscore = 0;
 let firstCard, secondCard, timer;
 
 
-
 let complexityValue = JSON.parse(localStorage.getItem('levelValue'));
 
 if (complexityValue == "c-1") {
-    maxTime = 70;
+    maxTime = 35;
 }
 if (complexityValue == "c-2") {
-    maxTime = 50;
+    maxTime = 25;
 }
 if (complexityValue == "c-3") {
-    maxTime = 30;
+    maxTime = 15;
 }
-
 
 
 function timerFunc() {
@@ -111,7 +104,7 @@ function checkCards(firstImg, secondImg) {
 
 
 
-        if (cardPair == 6 && remainingTime > 0) {
+        if (cardPair == 4 && remainingTime > 0) {
             if (bestTag.innerText > turn || bestTag.innerText == 0) {
                 highscore = turn;
                 bestTag.innerText = highscore;
@@ -120,7 +113,7 @@ function checkCards(firstImg, secondImg) {
             return clearInterval(timer), setTimeout(() => {
                 successBox.classList.remove('display');
                 overlay.classList.remove('display');
-            }, 500);;
+            }, 500);
         }
 
 
@@ -153,7 +146,7 @@ function mixCards() {
     turnTag.innerText = turn;
     deactivate = started = false;
 
-    let arr = [1, 2, 3, 4, 5, 6, 5, 6, 1, 2, 3, 4];
+    let arr = [1, 2, 3, 4, 1, 2, 3, 4];
     arr.sort(() => Math.random() > 0.5 ? 1 : -1);
 
     cards.forEach((card, index) => {

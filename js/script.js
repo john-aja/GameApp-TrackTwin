@@ -12,22 +12,22 @@ const levelThree = document.querySelector('.c-three').value;
 
 
 function pageOne() {
-    window.location.href = 'GamePage/two*three.html';
+    window.location.href = 'two*three.html';
     return false;
 }
 
 function pageTwo() {
-    window.location.href = 'GamePage/two*four.html';
+    window.location.href = 'two*four.html';
     return false;
 }
 
 function pageThree() {
-    window.location.href = 'GamePage/three*four.html';
+    window.location.href = 'three*four.html';
     return false;
 }
 
 function pageFour() {
-    window.location.href = 'GamePage/four*five.html';
+    window.location.href = 'four*five.html';
     return false;
 }
 

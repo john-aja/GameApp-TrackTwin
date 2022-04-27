@@ -20,7 +20,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     font-family: 'Ubuntu', sans-serif;
-    white-space: nowrap;
   }
   
   
@@ -47,8 +46,8 @@
   .cards_list .card{
     cursor: pointer;
     position: relative;
-    height: 21%;
-    width:18%;
+    height: 28%;
+    width:22%;
   }
   
   .card.vibrate{
@@ -112,6 +111,7 @@
     border-radius: 7px;
     background: #b8b8b8c7;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    white-space: nowrap;
   }
   
   .information div{
@@ -155,20 +155,18 @@
     color: #fff;
     background: rgb(18, 52, 163);
   }
-
   
-.information a button{
-  text-decoration: none;
-  border: 2px solid rgb(163, 18, 54);
-  color: rgb(163, 18, 54);
-}
+  .information a button{
+    text-decoration: none;
+    border: 2px solid rgb(163, 18, 54);
+    color: rgb(163, 18, 54);
+  }
 
-.information a button:hover{
-  background:rgb(163, 18, 54);
-  color: #fff;
+  .information a button:hover{
+    background:rgb(163, 18, 54);
+    color: #fff;
 
-}
-  
+  }
   
   .hidden{
   opacity:0;
@@ -176,7 +174,7 @@
 
   .display{
     opacity:0;
-  visibility: hidden;
+    visibility: hidden;
   }
 
 
@@ -217,7 +215,6 @@
     color: white;
   }
 
-
   .alert-fail{
     display: flex;
     justify-content: center;
@@ -254,7 +251,6 @@
     color: white;
   }
 
-
   .overlay{
     position: absolute;
     top:0;
@@ -265,7 +261,8 @@
     z-index: 1;
     backdrop-filter: blur(4px);
   }
-  
+
+
 
 
 
@@ -283,8 +280,9 @@
     .information div{
       padding:1rem 4rem;
     }
-  }
-  
+}
+
+
   @media screen and (max-width:1000px){
     .cards_list{
       height: 25rem;
@@ -321,6 +319,82 @@
     height: 35rem;
     width: 35rem;
   }
+  .alert-fail p {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .alert p {
+    font-size: 1.5rem;
+    text-align: center;
+  }
   }
   
-  
+    
+  @media screen and (max-width:700px){
+    .information {
+      padding: 1rem;
+  }
+  .container {
+    padding: 1rem;
+  }
+  .information p {
+    font-size: 1rem;
+}
+.information div {
+  padding: 1rem;
+}
+  }
+
+
+  @media screen and (max-width:600px){
+    .cards_list {
+    height: 25rem;
+    width: 25rem;
+    }
+    .information p {
+      font-size: 0.7rem;
+  }
+  .information button{
+    font-size: 0.7rem;
+  }
+  .card .card-back img {
+    max-width: 4rem;
+  }
+}
+
+@media screen and (max-width:500px){
+  .cards_list {
+    height: 20rem;
+    width: 20rem;
+    }
+    .information div {
+      padding: 0.5rem;
+  }
+  .information p {
+    font-size: 0.5rem;
+}
+.information button{
+  font-size: 0.5rem;
+}
+.card .card-back img {
+  max-width: 3rem;
+}
+.alert p {
+  font-size: 1rem;
+}
+.alert a {
+  padding: 0.5rem 1rem;
+}
+.alert{
+  height:30vh;
+}
+.alert-fail p {
+  font-size: 1rem;
+}
+.alert-fail a {
+  padding: 0.5rem 1rem;
+}
+.alert-fail{
+  height:30vh;
+}
+}

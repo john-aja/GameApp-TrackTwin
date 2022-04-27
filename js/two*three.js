@@ -15,7 +15,7 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app)
 
 let data;
-const retriveData = ref(db, 'bestscore 2*4/');
+const retriveData = ref(db, 'bestscore 2*3/');
 onValue(retriveData, (snapshot) => {
     data = snapshot.val().highscore
     bestTag.innerText = data;
@@ -24,10 +24,13 @@ onValue(retriveData, (snapshot) => {
 
 
 function writeData(score) {
-    set(ref(db, 'bestscore 2*4/'), {
+    set(ref(db, 'bestscore 2*3/'), {
         highscore: score,
     })
 }
+
+
+
 
 const cards = document.querySelectorAll(".card");
 const timeTag = document.querySelector(".time b");
@@ -35,7 +38,7 @@ const turnTag = document.querySelector(".moves b");
 const bestTag = document.querySelector(".high-score b")
 const refreshBtn = document.querySelector(".information button");
 const successBox = document.querySelector('.alert');
-const overlay = document.querySelector('.overlay');
+const overlay = document.querySelector('.overlay')
 const timeUpBox = document.querySelector('.alert-fail')
 
 let maxTime;
@@ -48,16 +51,17 @@ let highscore = 0;
 let firstCard, secondCard, timer;
 
 
+
 let complexityValue = JSON.parse(localStorage.getItem('levelValue'));
 
 if (complexityValue == "c-1") {
-    maxTime = 40;
-}
-if (complexityValue == "c-2") {
     maxTime = 30;
 }
-if (complexityValue == "c-3") {
+if (complexityValue == "c-2") {
     maxTime = 20;
+}
+if (complexityValue == "c-3") {
+    maxTime = 10;
 }
 
 
@@ -91,37 +95,40 @@ function turnCard({ target: clickedCard }) {
     }
 }
 
+
+
 function removeCard(firstCard, secondCard) {
     setTimeout(() => {
         firstCard.classList.toggle("hidden");
         secondCard.classList.toggle("hidden");
     }, 1000);
 }
+
+
+
+
+
 function checkCards(firstImg, secondImg) {
     if (firstImg === secondImg) {
         removeCard(firstCard, secondCard);
         cardPair++;
-
-
-
-        if (cardPair == 4 && remainingTime > 0) {
+        if (cardPair == 3 && remainingTime > 0) {
             if (bestTag.innerText > turn || bestTag.innerText == 0) {
                 highscore = turn;
-                bestTag.innerText = highscore;
-                writeData(highscore)
+
+                writeData(highscore);
             }
             return clearInterval(timer), setTimeout(() => {
                 successBox.classList.remove('display');
                 overlay.classList.remove('display');
             }, 500);
         }
-
-
         firstCard.removeEventListener("click", turnCard);
         secondCard.removeEventListener("click", turnCard);
         firstCard = secondCard = "";
         return deactivate = false;
     }
+
 
     setTimeout(() => {
         firstCard.classList.add("vibrate");
@@ -136,6 +143,7 @@ function checkCards(firstImg, secondImg) {
     }, 1200);
 }
 
+
 function mixCards() {
 
     remainingTime = maxTime;
@@ -146,7 +154,7 @@ function mixCards() {
     turnTag.innerText = turn;
     deactivate = started = false;
 
-    let arr = [1, 2, 3, 4, 1, 2, 3, 4];
+    let arr = [1, 2, 3, 1, 2, 3];
     arr.sort(() => Math.random() > 0.5 ? 1 : -1);
 
     cards.forEach((card, index) => {
@@ -167,6 +175,4 @@ refreshBtn.addEventListener("click", mixCards);
 cards.forEach(card => {
     card.addEventListener("click", turnCard);
 });
-
-
 

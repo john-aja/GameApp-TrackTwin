@@ -1,6 +1,16 @@
-# GameApp-TrackTwin
+# TrackTwin
 
 This is a web-based memory game app developed using HTML, CSS, and JavaScript. The game challenges players to test their memory skills by matching pairs of cards with the same image. The objective is to clear the board by finding and eliminating all the matching pairs.
+
+## Technologies Used
+
+The TrackTwin is built using the following technologies:
+
+- **HTML**: The structure and layout of the web pages are created using HTML.
+
+- **CSS**: CSS is used for styling the user interface and making the app visually appealing.
+
+- **JavaScript**: JavaScript is responsible for the functionality of the app, handling user interactions.
 
 ## Game Instructions
 
@@ -37,14 +47,6 @@ Alternatively, you can access and play the game directly from the deployed versi
 
 ****URL:*** https://stately-snickerdoodle-c7eddc.netlify.app*
 
-## Technologies Used
-
-The Memory Game App is developed using the following technologies:
-
-- HTML
-- CSS
-- JavaScript
-
 ## Contributing
 
 Contributions to the Memory Game App are welcome! If you would like to contribute, please follow these steps:
@@ -62,6 +64,7 @@ Contributions to the Memory Game App are welcome! If you would like to contribut
 For any inquiries or support regarding the Scheme Welfare Web Application, please contact:
 
 ***John***
+
 Email: ***janakiram.0695@gmail.com***
 
 Feel free to reach out with any questions, feedback, or suggestions. Your input is highly appreciated!

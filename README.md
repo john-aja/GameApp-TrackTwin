@@ -2,7 +2,7 @@
 
 This is a web-based memory game app developed using HTML, CSS, and JavaScript. The game challenges players to test their memory skills by matching pairs of cards with the same image. The objective is to clear the board by finding and eliminating all the matching pairs.
 
-## Technologies Used
+## Technologies Used 
 
 The TrackTwin is built using the following technologies:
 

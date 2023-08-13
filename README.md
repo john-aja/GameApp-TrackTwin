@@ -1,5 +1,7 @@
 # TrackTwin
 
+![Wireframe - 1](https://github.com/john-aja/GameApp-TrackTwin/assets/95049418/f3daad6b-ecda-4692-8bb1-31af9e9a0226)
+
 This is a web-based memory game app developed using HTML, CSS, and JavaScript. The game challenges players to test their memory skills by matching pairs of cards with the same image. The objective is to clear the board by finding and eliminating all the matching pairs.
 
 ## Technologies Used 

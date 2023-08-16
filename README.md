@@ -47,10 +47,6 @@ To run the Memory Game App locally, follow these steps:
 2. Navigate to the project directory: `cd game-app`
 3. Open the `index.html` file in your preferred web browser.
 
-Alternatively, you can access and play the game directly from the deployed version hosted on Netlify.
-
-****URL:*** https://stately-snickerdoodle-c7eddc.netlify.app*
-
 ## Contributing
 
 Contributions to the Memory Game App are welcome! If you would like to contribute, please follow these steps:

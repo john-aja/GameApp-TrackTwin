@@ -1,8 +1,10 @@
 # TrackTwin
 
-![game-app](https://github.com/john-aja/GameApp-TrackTwin/assets/95049418/30a3b57f-c612-4a3f-be13-c6330ef5b4ce)
+![card-flip-mock](https://github.com/john-aja/GameApp-TrackTwin/assets/95049418/95967930-fa92-4544-8810-e97f8b2ea4aa)
 
 This is a web-based memory game app developed using HTML, CSS, and JavaScript. The game challenges players to test their memory skills by matching pairs of cards with the same image. The objective is to clear the board by finding and eliminating all the matching pairs.
+
+To open the website in a browser, please click on the following link : https://tracktwin.netlify.app/
 
 ## Technologies Used 
 
@@ -62,8 +64,6 @@ Contributions to the Memory Game App are welcome! If you would like to contribut
 
 
 ## Contact
-
-For any inquiries or support regarding the Scheme Welfare Web Application, please contact:
 
 ***John***
 
